@@ -42,7 +42,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function jela(){
-        return $this->hasMany(Jela::class);
+    public function foods(){
+        return $this->hasMany(Foods::class);
     }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
+
+
 }

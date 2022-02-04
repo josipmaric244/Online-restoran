@@ -17,9 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('o-nama', function () {
-    return view('o-nama');
+Route::get('about-us', function () {
+    return view('about-us');
 });
+
+Route::get('foods', function () {
+    return view('foods');
+});
+
+Route::get('auth', function () {
+    return view('auth');
+});
+
+
+Route::get('contact', function () {
+    return view('contact');
+});
+
 
 
 Auth::routes();

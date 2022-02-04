@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJelosTable extends Migration
+class CreateFoodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateJelosTable extends Migration
      */
     public function up()
     {
-        Schema::create('jelos', function (Blueprint $table) {
+        Schema::create('foods', function (Blueprint $table) {
             $table->id();
-            $table->string('manufacturer');
-            $table->string('jelo_model')->nullable();
+            $table->string('type');
+            $table->string('food_model')->nullable();
             $table->year('year');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateJelosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jelos');
+        Schema::dropIfExists('foods');
     }
 }

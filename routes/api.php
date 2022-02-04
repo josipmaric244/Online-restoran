@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\JeloController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +21,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 //rest API/CRUD
 
-Route::get('/jela', [JeloController::class, 'index']);
-Route::get('/jela/{jelo}', [JeloController::class, 'show']);
-Route::post('/jela', [JeloController::class, 'store']);
-Route::put('/jela/{jelo}', [JeloController::class, 'update']);
-Route::delete('/jela/{jelo}', [JeloController::class, 'destroy']);
+Route::prefix('auth')->group(function(){
+    Route::post('login', [AuthController::class, 'login'])->name('login');
+    Route::get('user', [AuthController::class, 'user']);
+    Route::get('logout', [AuthController::class, 'logout']);
+    Route::post('register', [AuthController::class, 'register']);
+});
+
+Route::get('/food', [FoodController::class, 'index']);
+Route::get('/foods/{food}', [FoodController::class, 'show']);
+Route::post('/foods', [FoodController::class, 'store']);
+Route::put('/foods/{food}', [FoodController::class, 'update']);
+Route::delete('/foods/{food}', [FoodController::class, 'destroy']);
+
+
+

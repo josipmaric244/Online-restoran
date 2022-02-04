@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jelo;
+use App\Models\Food;
 use Illuminate\Http\Request;
 
-class JeloController extends Controller
+class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class JeloController extends Controller
      */
 
     //dohvacanje svih modela tog tipa
-    //npr /jelos
+    //npr /foods
     public function index()
     {
-        return Jelo::get();
+        return Food::get();
     }
 
     /**
@@ -28,50 +28,49 @@ class JeloController extends Controller
 
     public function store(Request $request)
     {
-        $jelo = Jelo::create(['manufacturer' => $request->manufacturer, 'year' => $request->year, 'jelo_model' => $request->jelo_model, 'user_id' => $request->user_id]);
+        $food = Food::create(['type' => $request->type, 'year' => $request->year, 'food_model' => $request->food_model, 'user_id' => $request->user_id]);
 
-        return $jelo;
+        return $food;
     }
-    //kreiranje modela, POST na /jelos
+    //kreiranje modela, POST na /foods
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jelo  $jelo
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(Jelo $jelo)
+    public function show(Food $food)
     {
-        return $jelo;
+        return $food;
 
     }
 
-    //dohvacanje pojedinacnog jela
-
+    //dohvacanje pojedinacnih foods
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jelo  $jelo
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Jelo $jelo)
+    public function update(Request $request, Food $food)
     {
-        $jelo = Jelo::create(['manufacturer' => $request->manufacturer, 'year' => $request->year, 'jelo_model' => $request->jelo_model, 'user_id' => $request->user_id]);
+        $food = Food::create(['type' => $request->type, 'year' => $request->year, 'food_model' => $request->food_model, 'user_id' => $request->user_id]);
 
-        return $jelo;
+        return $food;
     }
 
     //
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jelo  $jelo
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jelo $jelo)
+    public function destroy(Food $food)
     {
-        return $jelo->delete();
+        return $food->delete();
 
     }
 }
