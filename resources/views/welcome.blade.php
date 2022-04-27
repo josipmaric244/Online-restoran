@@ -25,11 +25,4 @@
     </div>
 </div>
 
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-    <img class="w3-image" src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" width="3000" height="5000">
-    <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-        <h1 class="w3-xxlarge">No Name Restoran</h1>
-    </div>
 
-</body>
-</html>
